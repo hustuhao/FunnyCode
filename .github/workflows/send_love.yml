@@ -17,5 +17,4 @@ jobs:
           pip install -r requirements.txt
       - name: send msg
         run: |
-          cd love
           python send_love_msg.py
