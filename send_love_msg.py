@@ -10,6 +10,7 @@ from config import loadConfig
 config = loadConfig("config.yaml")
 qywxWebhookKey = config.weChatWork.webhookKey
 wxpushAppToken = config.wxPusher.appToken
+wxpushTopicIds = config.wxPusher.topicIds
 city = config.weather.city
 monthOfBirthday = config.lover.monthOfBirthday
 dayOfBirthday = config.lover.dayOfBirthday
@@ -245,7 +246,7 @@ def wxPusher(tex):
         "content": tex,
         "summary": "相爱一生",
         "contentType": 2,
-        "topicIds": [6931],
+        "topicIds": wxpushTopicIds,
         "url": "http://wxpusher.zjiecode.com",
     }
     message_json = json.dumps(message)
