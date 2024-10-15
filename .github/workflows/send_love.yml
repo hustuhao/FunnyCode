@@ -1,22 +1,48 @@
 name: CI
 on:
   schedule:
-  - cron: "5 0 * * *"
+  # 每天早上7:40运行
+  - cron: "40 7 * * *"
+  # 每天下午5:00运行
+  - cron: "0 17 * * *"
   push:
     branches: [ "main" ]
 jobs:
-  build:
+  send-morning-message:
     runs-on: ubuntu-latest
-    steps:      
+    steps:
+      - name: Checkout repository
       - uses: actions/checkout@v3
+      
       - name: Set up Python 3.9
         uses: actions/setup-python@v2
         with:
           python-version: 3.9
+          
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-      - name: send msg
+          
+      - name: Run morning message script
         run: |
-          python send_love_msg.py
+          python send_morning_message.py
+  send-evening-message:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run evening message script
+        run: |
+          python send_evening_message.py
