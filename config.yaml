@@ -1,0 +1,17 @@
+wxPusher:
+  appToken: "AT_penx9gyzxwP6g7dwd4lb6LoWHskuGPiE"  # wxPusher的appToken
+  topicIds:
+    - 34432                          # wxPusher的topicIds，支持多个ID
+
+wechatWork:
+  webhookKey: "xxxxxx"  # 企业微信的webhook key
+
+weather:
+  apiKey: "fd14b9ca913160e65eb47b1edba5d48c"  # 高德天气接口的key
+  city: 610118 # https://a.amap.com/lbs/static/code_resource/AMap_adcode_citycode.zip  
+
+lover:
+  expressLoveTimestamp: 1594378800  
+  monthOfBirthday: 8
+  dayOfBirthday: 19
+  meetingTimestamp: 1504233600
